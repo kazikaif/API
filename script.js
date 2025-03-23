@@ -17,24 +17,25 @@ async function FetchData() {
 function displayData(data) {
   const tbody = document.getElementById("tbody");
 
-  tbody.innerHTML = "";
+  tbody.innerHTML = ""; // Clear the table body
 
-  data.forEach((coin) => {
+  for (let i = 0; i < data.length; i++) {
+    const coin = data[i]; // Get the current coin
     const row = document.createElement("tr");
     row.innerHTML = `
-        <td><img src="${coin.image}" alt="${coin.name}" width="30"/></td>
-        <td>${coin.symbol.toUpperCase()}</td>
-        <td>${coin.name}</td>
-        <td>$${coin.current_price.toLocaleString()}</td>
-        <td>$${coin.market_cap.toLocaleString()}</td>
-        <td style="color: ${
-          coin.price_change_percentage_24h >= 0 ? "green" : "red"
-        }">
-          ${coin.price_change_percentage_24h.toFixed(2)}%
-        </td>
-      `;
-    tbody.appendChild(row);
-  });
+      <td><img src="${coin.image}" alt="${coin.name}" width="30"/></td>
+      <td>${coin.symbol.toUpperCase()}</td>
+      <td>${coin.name}</td>
+      <td>$${coin.current_price.toLocaleString()}</td>
+      <td>$${coin.market_cap.toLocaleString()}</td>
+      <td style="color: ${
+        coin.price_change_percentage_24h >= 0 ? "green" : "red"
+      }">
+        ${coin.price_change_percentage_24h.toFixed(2)}%
+      </td>
+    `;
+    tbody.appendChild(row); // Append the row to the table body
+  }
 }
 
 function Search() {
@@ -60,4 +61,5 @@ function Percentage() {
   );
   displayData(PercentageSorted);
 }
+
 FetchData();
