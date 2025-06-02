@@ -81,30 +81,73 @@ tr {
 th {
   font-size: 20px;
   color: white;
-}
+}/* Match your media query structure */
 
-/* Responsive adjustments */
-
-@media (max-width: 1024px) {
-  input {
-    width: 100% !important;
-    max-width: 450px;
-  }
-}
-
-@media (max-width: 600px) {
+/* Mobile */
+@media screen and (max-width: 767px) {
   .filter {
-    flex-direction: column !important;
-    align-items: stretch;
-    margin-left: 0 !important;
-    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
   }
 
-  input, button {
-    width: 100% !important;
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  input,
+  button {
+    width: 100%;
+    max-width: 100%;
   }
 
   table {
-    margin-left: 0 !important;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  td {
+    font-size: 18px;
+  }
+
+  th {
+    font-size: 16px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input,
+  button {
+    max-width: 100%;
+  }
+
+  .filter {
+    justify-content: center;
+  }
+
+  table {
+    font-size: 15px;
+  }
+}
+
+/* Laptop/Desktop */
+@media screen and (min-width: 1025px) {
+  .filter {
+    justify-content: center;
+  }
+
+  .container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
   }
 }
