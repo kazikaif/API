@@ -71,3 +71,37 @@ th{
   color: white;
 }
 
+/* Your original styles remain unchanged */
+
+/* Add only these media queries for responsiveness: */
+
+@media (max-width: 1024px) {
+  .filter {
+    margin-left: 20px !important; /* reduce big margin */
+    flex-wrap: wrap; /* allow buttons/input to wrap */
+  }
+
+  table {
+    margin-left: 20px !important;
+  }
+
+  input {
+    width: 300px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter {
+    margin-left: 10px !important;
+    flex-direction: column !important;
+    gap: 8px;
+  }
+
+  input, button {
+    width: 100% !important;
+  }
+
+  table {
+    margin-left: 10px !important;
+  }
+}
