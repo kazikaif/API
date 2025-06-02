@@ -4,18 +4,25 @@ body {
   background-color: black;
   color: gray;
 }
+
 .filter {
   display: flex;
   gap: 10px;
-  margin-left: 350px;
+  margin-left: 0; /* Removed big fixed margin */
   width: 100%;
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center on smaller widths */
 }
+
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-top: 40px;
+  align-items: flex-start; /* better stacking for small screens */
+  padding: 40px 20px; /* use padding instead of margin */
+  flex-wrap: wrap; /* allow wrapping */
+  gap: 20px;
 }
+
 input {
   padding: 20px;
   width: 450px;
@@ -24,6 +31,7 @@ input {
   color: rgb(231, 227, 227);
   border: 2px solid rgb(87, 85, 85);
 }
+
 input:hover {
   border: 2px solid white;
 }
@@ -31,15 +39,16 @@ input:hover {
 button {
   padding: 20px;
   font-size: 15px;
-
   background-color: black;
   color: rgb(231, 227, 227);
   border: 2px solid rgb(87, 85, 85);
   cursor: pointer;
 }
+
 button:hover {
   border: 2px solid white;
 }
+
 .details {
   margin-left: 50px;
   display: flex;
@@ -47,53 +56,47 @@ button:hover {
   width: 100%;
   gap: 20px;
 }
+
 table {
-  margin-left: 250px;
+  margin-left: 0; /* Removed big fixed margin */
   margin-top: 20px;
-   width: 100%;
+  width: 100%;
+  max-width: 900px; /* limit max width */
   height: 100%;
   text-align: left;
-
 }
+
 td {
-   width: 200px;
-  height: 100%  ;
+  width: 200px;
+  height: 100%;
   font-size: 25px;
   border-bottom: 1px solid #444;
   padding: 8px;
-  
 }
+
 tr {
   border: 2px solid white;
 }
-th{
+
+th {
   font-size: 20px;
   color: white;
 }
 
-/* Your original styles remain unchanged */
-
-/* Add only these media queries for responsiveness: */
+/* Responsive adjustments */
 
 @media (max-width: 1024px) {
-  .filter {
-    margin-left: 20px !important; /* reduce big margin */
-    flex-wrap: wrap; /* allow buttons/input to wrap */
-  }
-
-  table {
-    margin-left: 20px !important;
-  }
-
   input {
-    width: 300px !important;
+    width: 100% !important;
+    max-width: 450px;
   }
 }
 
 @media (max-width: 600px) {
   .filter {
-    margin-left: 10px !important;
     flex-direction: column !important;
+    align-items: stretch;
+    margin-left: 0 !important;
     gap: 8px;
   }
 
@@ -102,6 +105,6 @@ th{
   }
 
   table {
-    margin-left: 10px !important;
+    margin-left: 0 !important;
   }
 }
